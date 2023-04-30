@@ -10,6 +10,7 @@ public class GameMenuManager : MonoBehaviour
     public Transform head;
     public float spawnDistance = 2;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,6 @@ public class GameMenuManager : MonoBehaviour
         if(showButton.action.WasPressedThisFrame())
         {
             menu.SetActive(!menu.activeSelf);
-
             menu.transform.position = head.position + new Vector3(head.forward.x, 0, head.forward.z).normalized * spawnDistance;
         }
 
