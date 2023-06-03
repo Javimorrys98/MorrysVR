@@ -123,6 +123,10 @@ public class MainMenu : MonoBehaviour
         munecoFeria4.GetComponent<Rigidbody>().WakeUp();
         munecoFeria5.GetComponent<Rigidbody>().WakeUp();
 
+        GameObject puntosFeria = GameObject.Find("PuntosFeria");
+        ListenerFeria listenerFeria = puntosFeria.GetComponent<ListenerFeria>();
+        listenerFeria.ResetPuntos();
+
     }
 
 }
