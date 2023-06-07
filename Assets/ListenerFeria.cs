@@ -13,7 +13,7 @@ public class ListenerFeria : MonoBehaviour
     void Start()
     {
         puntos = 0;
-        listaObjetivosOriginal = listaObjetivos;
+        listaObjetivosOriginal = new List<GameObject>(listaObjetivos);
     }
 
     // Update is called once per frame
@@ -37,6 +37,6 @@ public class ListenerFeria : MonoBehaviour
     {
         puntos = 0;
         GetComponent<TextMeshProUGUI>().text = puntos.ToString();
-        listaObjetivos = listaObjetivosOriginal;
+        listaObjetivos = new List<GameObject>(listaObjetivosOriginal);
     }
 }
