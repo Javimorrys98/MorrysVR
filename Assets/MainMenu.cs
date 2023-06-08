@@ -90,6 +90,10 @@ public class MainMenu : MonoBehaviour
 
         bolaBolos.GetComponent<Rigidbody>().velocity = Vector3.zero;
         bolaBolos.transform.position = new Vector3(-4.744f, 1.629f, 93.743f);
+        
+        GameObject puntosBolos = GameObject.Find("PuntosBolos");
+        ListenerBolos listenerBolos = puntosBolos.GetComponent<ListenerBolos>();
+        listenerBolos.ResetPuntos();
     }
 
     public void ResetFeria()

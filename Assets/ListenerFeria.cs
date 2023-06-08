@@ -23,7 +23,7 @@ public class ListenerFeria : MonoBehaviour
         {
             foreach (GameObject objetivo in listaObjetivos)
             {
-                if (objetivo.transform.position.y < 1.95f)
+                if (objetivo.transform.position.y < 1.5f)
                 {
                     puntos++;
                     GetComponent<TextMeshProUGUI>().text = puntos.ToString();
