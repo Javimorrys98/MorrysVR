@@ -7,13 +7,18 @@ public class ListenerBolos : MonoBehaviour
 {
     public List<GameObject> listaBolos;
     List<GameObject> listaBolosOriginal;
+
+    public AudioSource sonidoBolos;
     
     int puntos;
+
+    private bool bolosCaidos;
     // Start is called before the first frame update
     void Start()
     {
         puntos = 0;
         listaBolosOriginal = new List<GameObject>(listaBolos);
+        bolosCaidos = false;
     }
 
     // Update is called once per frame
@@ -25,6 +30,11 @@ public class ListenerBolos : MonoBehaviour
             {
                 if (Mathf.Abs(bolo.transform.rotation.eulerAngles.z) > 50.0f || Mathf.Abs(bolo.transform.rotation.eulerAngles.y) > 50.0f)
                 {
+                    if (!bolosCaidos)
+                    {
+                        sonidoBolos.Play();
+                        bolosCaidos = true;
+                    }
                     puntos++;
                     GetComponent<TextMeshProUGUI>().text = puntos.ToString();
                     listaBolos.Remove(bolo);
@@ -39,6 +49,7 @@ public class ListenerBolos : MonoBehaviour
     
     public void ResetPuntos()
     {
+        bolosCaidos = false;
         puntos = 0;
         GetComponent<TextMeshProUGUI>().text = puntos.ToString();
         listaBolos = new List<GameObject>(listaBolosOriginal);
